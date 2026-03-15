@@ -77,7 +77,10 @@ function DetailsPopup({
         context: uploadedDocumentContext,
       };
 
-      const generatedQuestions = (await axios.post("/api/generate-interview-questions", data)) as any;
+      const generatedQuestions = (await axios.post(
+        "/api/generate-interview-questions",
+        data,
+      )) as any;
 
       const generatedQuestionsResponse = JSON.parse(generatedQuestions?.data?.response);
 

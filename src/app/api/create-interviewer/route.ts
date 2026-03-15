@@ -1,8 +1,8 @@
 import { INTERVIEWERS, RETELL_AGENT_GENERAL_PROMPT } from "@/lib/constants";
 import { logger } from "@/lib/logger";
+import { createClient } from "@supabase/supabase-js";
 import { type NextRequest, NextResponse } from "next/server";
 import Retell from "retell-sdk";
-import { createClient } from "@supabase/supabase-js";
 
 const retellClient = new Retell({
   apiKey: process.env.RETELL_API_KEY || "",
@@ -11,7 +11,7 @@ const retellClient = new Retell({
 // Use server-side Supabase client for API routes
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL || "",
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "",
 );
 
 async function createInterviewerInDB(payload: any) {
@@ -102,4 +102,3 @@ export async function GET(res: NextRequest) {
     return NextResponse.json({ error: "Failed to create interviewers" }, { status: 500 });
   }
 }
-

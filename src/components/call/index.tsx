@@ -359,7 +359,7 @@ function Call({ interview }: InterviewProps) {
                     {!Loading ? "Start Interview" : <MiniLoader />}
                   </Button>
                   <AlertDialog>
-                    <AlertDialogTrigger>
+                    <AlertDialogTrigger asChild>
                       <Button
                         className="bg-white border ml-2 text-black min-w-15 h-10 rounded-lg flex flex-row justify-center mb-8"
                         style={{ borderColor: interview.theme_color }}
@@ -445,7 +445,7 @@ function Call({ interview }: InterviewProps) {
             {isStarted && !isEnded && !isOldUser && (
               <div className="items-center p-2">
                 <AlertDialog>
-                  <AlertDialogTrigger className="w-full">
+                  <AlertDialogTrigger asChild className="w-full">
                     <Button
                       className=" bg-white text-black border  border-indigo-600 h-10 mx-auto flex flex-row justify-center mb-8"
                       disabled={Loading}
@@ -495,7 +495,7 @@ function Call({ interview }: InterviewProps) {
 
                   {!isFeedbackSubmitted && (
                     <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                      <AlertDialogTrigger className="w-full flex justify-center">
+                      <AlertDialogTrigger asChild className="w-full flex justify-center">
                         <Button
                           className="bg-indigo-600 text-white h-10 mt-4 mb-4"
                           onClick={() => setIsDialogOpen(true)}

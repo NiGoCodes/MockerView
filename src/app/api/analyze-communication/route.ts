@@ -3,8 +3,8 @@ import {
   SYSTEM_PROMPT,
   getCommunicationAnalysisPrompt,
 } from "@/lib/prompts/communication-analysis";
-import { NextResponse } from "next/server";
 import { GoogleGenAI } from "@google/genai";
+import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   logger.info("analyze-communication request received");
@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
     const completion = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3.1-flash-lite-preview",
       contents: getCommunicationAnalysisPrompt(transcript),
       config: {
         systemInstruction: SYSTEM_PROMPT,

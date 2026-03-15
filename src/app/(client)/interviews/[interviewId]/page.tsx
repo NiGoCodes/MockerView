@@ -27,14 +27,13 @@ import type { Interview } from "@/types/interview";
 import type { Response } from "@/types/response";
 import { useOrganization } from "@clerk/nextjs";
 import { Eye, Filter, Palette, Pencil, Share2, UserIcon } from "lucide-react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect, use } from "react";
-import dynamic from "next/dynamic";
 
-const ChromePicker = dynamic(
-  () => import("react-color").then((mod) => mod.ChromePicker),
-  { ssr: false }
-);
+const ChromePicker = dynamic(() => import("react-color").then((mod) => mod.ChromePicker), {
+  ssr: false,
+});
 import { toast } from "sonner";
 
 interface Props {
@@ -59,7 +58,6 @@ function InterviewHome({ params, searchParams }: Props) {
   const router = useRouter();
   const [isActive, setIsActive] = useState<boolean>(true);
   const [currentPlan, setCurrentPlan] = useState<string>("");
-  const [isGeneratingInsights, setIsGeneratingInsights] = useState<boolean>(false);
   const [isViewed, setIsViewed] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
   const [showColorPicker, setShowColorPicker] = useState<boolean>(false);
@@ -98,10 +96,8 @@ function InterviewHome({ params, searchParams }: Props) {
         setLoading(false);
       }
     };
-    if (!interview || !isGeneratingInsights) {
-      fetchInterview();
-    }
-  }, [getInterviewById, resolvedParams.interviewId, isGeneratingInsights]);
+    fetchInterview();
+  }, [getInterviewById, resolvedParams.interviewId]);
 
   useEffect(() => {
     const fetchOrganizationData = async () => {

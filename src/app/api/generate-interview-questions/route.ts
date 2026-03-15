@@ -1,7 +1,7 @@
 import { logger } from "@/lib/logger";
 import { SYSTEM_PROMPT, generateQuestionsPrompt } from "@/lib/prompts/generate-questions";
-import { NextResponse } from "next/server";
 import { GoogleGenAI } from "@google/genai";
+import { NextResponse } from "next/server";
 
 export const maxDuration = 60;
 
@@ -13,7 +13,7 @@ export async function POST(req: Request) {
 
   try {
     const completion = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3.1-flash-lite-preview",
       contents: generateQuestionsPrompt(body),
       config: {
         systemInstruction: SYSTEM_PROMPT,
