@@ -1,5 +1,5 @@
 services:
-  foloup:
+  MockerView:
     build: .
     ports:
       - "${DOCKER_PORT:-3000}:3000"

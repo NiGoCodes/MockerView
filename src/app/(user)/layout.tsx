@@ -9,15 +9,15 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
-  title: "FoloUp",
+  title: "MockerView",
   description: "AI powered Interviews",
   openGraph: {
-    title: "FoloUp",
+    title: "MockerView",
     description: "AI-powered Interviews",
-    siteName: "FoloUp",
+    siteName: "MockerView",
     images: [
       {
-        url: "/foloup.png",
+        url: "/MockerView.png",
         width: 800,
         height: 600,
       },

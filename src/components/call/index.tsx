@@ -532,14 +532,14 @@ function Call({ interview }: InterviewProps) {
         </Card>
         <a
           className="flex flex-row justify-center align-middle mt-3"
-          href="https://folo-up.co/"
+          href="/"
           target="_blank"
           rel="noreferrer"
         >
           <div className="text-center text-md font-semibold mr-2  ">
             Powered by{" "}
             <span className="font-bold">
-              Folo<span className="text-indigo-600">Up</span>
+              Mocker<span className="text-indigo-600">View</span>
             </span>
           </div>
           <ArrowUpRightSquareIcon className="h-[1.5rem] w-[1.5rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-indigo-500 " />
